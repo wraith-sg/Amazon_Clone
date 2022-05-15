@@ -8,7 +8,8 @@ import firebaseApp from "./firebase";
 import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const [state, dispatch] = useStateValue();
+  console.log(state);
   
   useEffect(() => {
     const auth = getAuth(firebaseApp);
@@ -25,7 +26,7 @@ function App() {
         });
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>
